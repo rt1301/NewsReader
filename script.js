@@ -15,7 +15,7 @@ const filterNewsContent = async (searchText)=>{
     let matches = news.articles.filter(filterNews=>{
       if(filterNews.description && filterNews.author)
       {
-        return filterNews.title.includes(searchText) || filterNews.description.includes(searchText) || filterNews.author.includes(searchText);
+        return filterNews.title.toLowerCase().includes(searchText.toLowerCase()) || filterNews.description.toLowerCase().includes(searchText.toLowerCase()) || filterNews.author.toLowerCase().includes(searchText.toLowerCase());
       }
     });
     if(searchText.length == 0)
