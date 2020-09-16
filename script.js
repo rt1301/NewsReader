@@ -17,10 +17,15 @@ const filterNewsContent = async (searchText)=>{
       {
         return filterNews.title.toLowerCase().includes(searchText.toLowerCase()) || filterNews.description.toLowerCase().includes(searchText.toLowerCase()) || filterNews.author.toLowerCase().includes(searchText.toLowerCase());
       }
+      else if(filterNews.description)
+      {
+        return filterNews.title.toLowerCase().includes(searchText.toLowerCase()) || filterNews.description.toLowerCase().includes(searchText.toLowerCase());
+      }
     });
     if(searchText.length == 0)
     {
       matches = [];
+      newsContent();
     }
     outputHtml(matches);
 }
